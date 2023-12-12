@@ -27,13 +27,23 @@ typedef struct {
 extern Filesystem FS;
 
 size_t find_empty_chunk();
+
 size_t find_first_chunk(const char *file_path);
-size_t create_file(const char *file_path, char *src, size_t size);
+
+size_t create_file(char const *file_path, char const *src, size_t size);
+
 void view_file(const char *file_path);
+
 void remove_file(const char *file_path);
+
 void copy_file(const char *file_path_dst, const char *file_path_src);
+
 void move_file(const char *file_path_dst, const char *file_path_src);
+
 void print_files();
+
 void dump_fs(const char *bin_path);
+
+void load_fs(const char *bin_path);
 
 #endif //OSLABS5_MYFS_H

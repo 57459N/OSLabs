@@ -24,7 +24,7 @@ size_t find_first_chunk(const char *file_path) {
     return ERR;
 }
 
-size_t create_file(const char *file_path, char *src, size_t size) {
+size_t create_file(char const *file_path, char const *src, size_t size) {
 
     if (size == 0)
         return LIST_END;
@@ -138,4 +138,15 @@ void dump_fs(const char *bin_path) {
 
     fwrite(FS.chunks, sizeof(Chunk), CHUNKS_CAP, out);
     fclose(out);
+}
+
+void load_fs(const char* bin_path){
+    FILE *in = fopen(bin_path, "wb");
+    if (!in) {
+        fprintf(stderr, "Cannot load filesystem\n");
+        return;
+    }
+
+    fread(FS.chunks, sizeof(Chunk), CHUNKS_CAP, in);
+    fclose(in);
 }
