@@ -3,4 +3,6 @@ project(OSLabs5)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(OSLabs5 main.cpp)
+add_executable(OSLabs5 main.cpp
+        myfs.h
+        myfs.cpp)
